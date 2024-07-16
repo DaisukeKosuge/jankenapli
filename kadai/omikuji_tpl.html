@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<script src="js/jquery-2.1.3.min.js"></script>
+<link rel="stylesheet" href="css/sample.css">
+<title>おみくじ</title>
+</head>
+<body>
+
+<header>
+    <h1>おみくじ</h1>
+</header>
+
+<main>
+    <ul>
+        <li id="pull">おみくじを引く</li>
+    </ul>
+    <p id="echo"></p>
+</main>
+
+<footer>フッター</footer>
+<script>
+$("#pull").on("click",function(){
+    const r = Math.random()*5; //小数点0.000001~0.99999
+    const n = Math.ceil(r);    //繰り上げ0.01➡1
+    console.log(n);
+    if(n == 1){
+        $("#echo").html('<img src="data:image/png;base64,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">');           //文字を上書き
+        $("#echo").css("color","#ff0000"); //文字を赤
+    }
+    if(n == 2){
+        $("#echo").html("中吉");
+        $("#echo").css("color","#00ff00"); //文字を緑
+    }
+    if(n == 3){
+        $("#echo").html("笑吉");
+        $("#echo").css("color","#0000ff"); //文字を青
+    }
+    if(n ==  4){
+        $("#echo").html("吉");
+        $("#echo").css("color","#000000"); //文字を黒
+    }
+    if(n == 5){
+        $("#echo").html("凶");
+        $("#echo").css("color","#000000"); //文字を黒
+    }
+});
+
+
+
+
+
+</script>
+</body>
+</html>
